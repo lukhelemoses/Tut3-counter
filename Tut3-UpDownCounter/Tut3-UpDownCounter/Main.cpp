@@ -8,8 +8,7 @@ int main(){
 	UpDownCounter counter;
 	cout << "Enter the counter value\n" << endl;
 	cin >> n;
-
-		counter.operator--(n);
+	    
 	
 	system("pause");
 	return 0;
