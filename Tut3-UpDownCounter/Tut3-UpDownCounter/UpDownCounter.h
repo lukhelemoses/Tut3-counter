@@ -2,13 +2,17 @@
 class UpDownCounter
 {
 public:
-	UpDownCounter(int counter=0);
+	UpDownCounter();
 	~UpDownCounter();
-UpDownCounter &operator++(int);
-UpDownCounter& operator--(int);
-void setValue(int);
+	void operator++();
+	void operator--();
+	void printUpCount();
+	void printDownCount();
+	void setCounterStartValue(int);
+	void setCounterStopValue(int);
 
 private:
-	int num;
+	int counter;
+	int endValue;
 };
 

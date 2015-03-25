@@ -1,49 +1,58 @@
-#include "UpDownCounter.h"
+#include"UpDownCounter.h"
 #include<iostream>
 using namespace std;
 
-UpDownCounter::UpDownCounter(int counter)
+
+UpDownCounter::UpDownCounter()
 {
-	setValue(counter);
+
+	counter = 0;
+	endValue = 255;
+
+
 }
-
-
 UpDownCounter::~UpDownCounter()
 {
+
 }
-UpDownCounter& UpDownCounter :: operator++(int num)
+
+void UpDownCounter::operator++()
 {
-	if (num!= 0)
-	{
-		if (num == 255)
-			num = 0;
-		else
-			num++;
-	
+
+	++counter;           // increment the value of counter
+
+}
+void UpDownCounter::operator--()
+{
+
+	--endValue;                 // decrement stop value of the counter 
+
+}
+void UpDownCounter::printUpCount()  // print the up counter from the start to the stop value given by the user
+{
+
+	for (int i = counter; i <= endValue; i++){
+
+
+		cout << counter << endl;
+		operator++();       //  increment counter value to  display
 	}
-	return *this;
 
 }
-
-UpDownCounter& UpDownCounter :: operator--(int num)
+void UpDownCounter::printDownCount()     // printing of down counting
 {
-	if (num != 0)
-	{
-		if (num == 0)
-			num = 255;
-		else
-		num--;
-	}
+	cout << endValue << endl;
+	operator--();   // decrement the stop value of the counter
 
-	return  *this;
+
 }
-
-void UpDownCounter::setValue(int counter)
+void UpDownCounter::setCounterStartValue(int in_start)
 {
-	if (counter <= 255)
-		num = counter;
-	
-	
+
+	counter = in_start;         // set counter start value
 }
 
-
+void UpDownCounter::setCounterStopValue(int in_stop)
+{
+	endValue = in_stop;     // set counter stop value
+}
